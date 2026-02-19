@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Lifestyle Beauty Salon | Sibiu</title>
+    <meta name="description" content="Salon de frumusețe premium în Sibiu. Transformări spectaculoase de păr, manichiură, styling. Strada Justiției nr. 8.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #b8c5d3;
+            --gold: #c9a959;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-logo {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled .nav-logo {
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar.scrolled .nav-links a {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled .nav-cta {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .nav-cta:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled .mobile-toggle span {
+            background: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.7)),
+                        url('images/banner.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-cta:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--white);
+            opacity: 0.7;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            z-index: -1;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .about-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .about-feature {
+            text-align: center;
+        }
+        
+        .about-feature i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-feature span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            padding: 3rem 2rem;
+            background: var(--light);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-price {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        
+        /* Gallery/Transformations */
+        .gallery {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .gallery .section-header h2 {
+            color: var(--white);
+        }
+        
+        .gallery .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(44, 62, 80, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            padding: 2rem;
+        }
+        
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 0.3rem;
+        }
+        
+        .contact-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-item p, .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+        
+        .contact-map {
+            height: 100%;
+            min-height: 400px;
+            background: var(--light);
+        }
+        
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .contact-map:hover iframe {
+            filter: grayscale(0%);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #1a252f);
+            padding: 5rem;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-section .hero-cta {
+            border: 2px solid var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 3rem 5%;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-text {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image::before {
+                display: none;
+            }
+            
+            .about-image img {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 5%;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-features {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--white);
+            padding: 6rem 2rem;
+            transition: right 0.4s ease;
+            z-index: 999;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-links {
+            list-style: none;
+        }
+        
+        .mobile-menu-links li {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobile-menu-links a {
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <img src="images/logo.jpg" alt="New Lifestyle Beauty Salon" class="nav-logo">
+        <ul class="nav-links">
+            <li><a href="#despre">Despre Noi</a></li>
+            <li><a href="#servicii">Servicii</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:+40123456789" class="nav-cta">Programare</a>
+        <div class="mobile-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <i class="fas fa-times mobile-menu-close" onclick="toggleMenu()"></i>
+        <ul class="mobile-menu-links">
+            <li><a href="#despre" onclick="toggleMenu()">Despre Noi</a></li>
+            <li><a href="#servicii" onclick="toggleMenu()">Servicii</a></li>
+            <li><a href="#galerie" onclick="toggleMenu()">Galerie</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="tel:+40123456789">📞 Programare</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transformă-ți Look-ul,<br>Transformă-ți Viața</h1>
+            <p>Experiență premium în frumusețe. Echipă de profesioniști dedicați să scoată ce e mai bun din tine.</p>
+            <a href="#contact" class="hero-cta">Fă-ți o Programare</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="despre">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="images/transform-2-curls.jpg" alt="Transformare păr">
+            </div>
+            <div class="about-content">
+                <h2>Bine ai venit la<br>New Lifestyle</h2>
+                <div class="divider" style="margin: 1.5rem 0;"></div>
+                <p>De peste un deceniu, New Lifestyle Beauty Salon este destinația de încredere pentru frumusețe în Sibiu. Combinăm tehnici moderne cu o atenție deosebită la detalii pentru a crea transformări spectaculoase.</p>
+                <p>Fiecare client care trece pragul salonului nostru primește o experiență personalizată, adaptată stilului și personalității sale unice.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-award"></i>
+                        <span>Experiență<br>10+ Ani</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Clienți<br>Mulțumiți</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-leaf"></i>
+                        <span>Produse<br>Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicii">
+        <div class="section-header">
+            <h2>Serviciile Noastre</h2>
+            <div class="divider"></div>
+            <p>Oferim o gamă completă de servicii pentru a te face să te simți și să arăți extraordinar</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Tuns & Styling</h3>
+                <p>Tunsorile moderne și clasice care îți pun în valoare trăsăturile și personalitatea</p>
+                <span class="service-price">de la 50 LEI</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>Vopsit & Balayage</h3>
+                <p>Transformări spectaculoase cu tehnici moderne de colorare și nuanțare</p>
+                <span class="service-price">de la 150 LEI</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spa"></i>
+                <h3>Tratamente Păr</h3>
+                <p>Tratamente de regenerare și hrănire pentru un păr strălucitor și sănătos</p>
+                <span class="service-price">de la 80 LEI</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Manichiură</h3>
+                <p>Manichiură clasică și nail art pentru unghii impecabile în orice ocazie</p>
+                <span class="service-price">de la 60 LEI</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-magic"></i>
+                <h3>Coafuri Ocazii</h3>
+                <p>Coafuri elegante pentru nunți, botezuri și evenimente speciale</p>
+                <span class="service-price">de la 120 LEI</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-gem"></i>
+                <h3>Make-up</h3>
+                <p>Make-up profesional pentru orice ocazie, de la natural la glam</p>
+                <span class="service-price">de la 100 LEI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galerie">
+        <div class="section-header">
+            <h2>Transformări Spectaculoase</h2>
+            <div class="divider"></div>
+            <p>Privește rezultatele muncii noastre — fiecare transformare spune o poveste</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/transform-1-blonde-bob.jpg" alt="Transformare bob blond">
+                <div class="gallery-overlay">
+                    <span>Balayage & Bob</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/transform-2-curls.jpg" alt="Transformare bucle">
+                <div class="gallery-overlay">
+                    <span>Styling Bucle</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/transform-3-red.jpg" alt="Transformare roșcat">
+                <div class="gallery-overlay">
+                    <span>Vopsit Burgundy</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/transform-4-highlights.jpg" alt="Transformare highlights">
+                <div class="gallery-overlay">
+                    <span>Highlights Naturale</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/transform-5-caramel.jpg" alt="Transformare caramel">
+                <div class="gallery-overlay">
+                    <span>Nuanțe Caramel</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/transform-7-chocolate.jpg" alt="Transformare ciocolatiu">
+                <div class="gallery-overlay">
+                    <span>Brunet Ciocolatiu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>Ce Spun Clientele Noastre</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Cel mai bun salon din Sibiu! Mereu plec de aici cu zâmbetul pe buze și un păr fabulos. Recomand cu încredere!"</p>
+                <span class="testimonial-author">— Maria D., Sibiu</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Pregătită pentru o Schimbare?</h2>
+        <p>Programează-te acum și lasă-ne să îți aducem frumusețea la viață</p>
+        <a href="tel:+40123456789" class="hero-cta">Sună Acum</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contactează-ne</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresa</h4>
+                        <p>Strada Justiției nr. 8<br>Sibiu, România</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Telefon</h4>
+                        <a href="tel:+40123456789">+40 123 456 789</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Program</h4>
+                        <p>Luni - Vineri: 09:00 - 19:00<br>Sâmbătă: 10:00 - 16:00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:contact@newlifestyle.ro">contact@newlifestyle.ro</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.5!2d24.1469!3d45.7928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ3JzM0LjEiTiAyNMKwMDgnNDkuMCJF!5e0!3m2!1sen!2sro!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="New Lifestyle">
+            </div>
+            <p class="footer-text">© 2026 New Lifestyle Beauty Salon. Toate drepturile rezervate.</p>
+            <div class="footer-links">
+                <a href="#">Politica de confidențialitate</a>
+                <a href="#">Termeni și condiții</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+            document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.service-card, .gallery-item, .about-content, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
